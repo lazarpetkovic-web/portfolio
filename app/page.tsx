@@ -276,7 +276,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-gray-400 mb-6 leading-relaxed">
                 I'm a Webflow specialist who believes great design should be
-                both beautiful and functional. With 3+ years of experience, I've
+                both beautiful and functional. With 2+ years of experience, I've
                 helped businesses transform their digital presence.
               </p>
               <p className="text-xl text-gray-400 mb-8 leading-relaxed">
