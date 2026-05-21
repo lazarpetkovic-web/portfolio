@@ -4,9 +4,12 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Globe, MessageSquare } from 'lucide-react';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -47,14 +50,16 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Brand Logo & Name */}
         <div className="flex items-center gap-6">
-          <a
-            href="#"
+          <button
             id="brand-logo"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+            onClick={() => {
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+              }
             }}
-            className="group flex items-center gap-2"
+            className="group flex items-center gap-2 cursor-pointer"
           >
             {/* LP monogram logo */}
             <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300">
@@ -63,7 +68,7 @@ export default function Header() {
             <span className="font-display font-extrabold text-[15px] tracking-tight text-zinc-900">
               Lazar<span className="text-zinc-500 font-light"> Petkovic</span>
             </span>
-          </a>
+          </button>
         </div>
 
         {/* Center Navigation Links - Reference: "Personal", "Business", "Partner", "About Us" */}

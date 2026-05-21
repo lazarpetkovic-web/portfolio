@@ -25,15 +25,15 @@ export default function ExpertiseSection() {
 
   const services = [
     {
-      id: 'srv-platform-migration',
-      title: 'Platform Migration to Next.js',
-      description: 'Seamlessly convert WordPress, Webflow, Wix, Shopify, or legacy static sites into modern, production-grade Next.js applications. I extract your content, rebuild your UI with React server components, optimize Core Web Vitals, and deploy on Vercel - delivering 2-5x faster load times, superior SEO, and a future-proof architecture.',
+      id: 'srv-agency-partner',
+      title: 'White-Label Partner for Agencies',
+      description: 'Act as your dedicated white-label development partner. You send me a project brief (scope, design references, must-haves) and I return a fully functional, production-ready Next.js site within 2 to 4 days. I handle the entire build process - React components, API integrations, responsive styling, and deployment. You keep full credit with your client, I stay behind the scenes. Perfect for agencies that want to scale delivery without hiring in-house.',
       highlight: true
     },
     {
-      id: 'srv-frontend-eng',
-      title: 'Frontend Engineering',
-      description: 'Building blazing-fast user interfaces in React 19, TypeScript models, modular component libraries, and clean custom animations.',
+      id: 'srv-flexible-dev',
+      title: 'Flexible Development - Any Stack',
+      description: 'I adapt to what your project needs - Webflow CMS builds, custom WordPress themes, React/Next.js applications, vanilla HTML/CSS/JS landing pages, or Shopify theme customization. No matter the platform or complexity, I deliver clean, performant code on your terms.',
       highlight: false
     },
     {

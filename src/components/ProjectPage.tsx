@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Compass, X, ChevronLeft, ChevronRight, Images, Lightbulb, Target, Code } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Compass, X, ChevronLeft, ChevronRight, Images, Lightbulb, Target, Code, Github, Linkedin, Mail } from 'lucide-react';
 import { PROJECTS } from '../data';
+import Header from './Header';
 
 function LazyImage({ src, alt, className, onClick }: { src: string; alt: string; className?: string; onClick?: () => void }) {
   const [loaded, setLoaded] = useState(false);
@@ -55,18 +56,7 @@ export default function ProjectPage() {
 
   return (
     <div className="min-h-screen bg-zinc-50">
-      {/* Sticky header with back button */}
-      <div className="sticky top-0 z-40 bg-zinc-50/90 backdrop-blur-md border-b border-zinc-200/60 py-4">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="group inline-flex items-center gap-2 font-sans text-xs font-bold text-zinc-600 hover:text-zinc-900 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            Back to Portfolio
-          </button>
-        </div>
-      </div>
+      <Header />
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
@@ -118,7 +108,7 @@ export default function ProjectPage() {
       )}
 
       {/* Main content */}
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 pt-32 pb-12">
         {/* Category tag */}
         <div className="mb-4">
           <span className="font-mono text-[9px] font-extrabold text-zinc-800 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-full uppercase tracking-wider">
@@ -172,31 +162,23 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        {project.galleryImages && project.galleryImages.length > 0 && (
-          <div className="mb-10">
-            <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
-              <Images className="w-3.5 h-3.5 text-zinc-400" />
-              Project Gallery
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {project.galleryImages.map((img, i) => (
-                <div
-                  key={i}
-                  className="relative rounded-2xl border border-zinc-200 shadow-sm aspect-[4/3] group"
-                  onClick={() => setLightboxIndex(i + 1)}
-                >
-                  <LazyImage
-                    src={img}
-                    alt={`${project.title} gallery ${i + 1}`}
-                    className="w-full h-full rounded-2xl"
-                  />
-                  <div className="absolute inset-0 bg-zinc-900/0 group-hover:bg-zinc-900/5 transition-all duration-300 rounded-2xl" />
-                </div>
-              ))}
-            </div>
+        {/* Project Tags */}
+        <div className="mb-10">
+          <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
+            <Compass className="w-3.5 h-3.5 text-zinc-400" />
+            Project Tags & Stack
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3.5 py-1.5 text-[10px] font-mono text-zinc-650 bg-zinc-50 border border-zinc-200/80 rounded-xl uppercase font-bold"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
-        )}
+        </div>
 
         {/* Case Study */}
         {project.caseStudy && (
@@ -235,7 +217,6 @@ export default function ProjectPage() {
               </div>
             </div>
 
-            {/* Tech Stack */}
             <div className="border-t border-zinc-800 pt-6">
               <h4 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3 font-bold">Tech Stack</h4>
               <div className="flex flex-wrap gap-2">
@@ -252,23 +233,31 @@ export default function ProjectPage() {
           </div>
         )}
 
-        {/* Project Tags */}
-        <div>
-          <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
-            <Compass className="w-3.5 h-3.5 text-zinc-400" />
-            Project Tags & Stack
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3.5 py-1.5 text-[10px] font-mono text-zinc-650 bg-zinc-50 border border-zinc-200/80 rounded-xl uppercase font-bold"
-              >
-                {tag}
-              </span>
-            ))}
+        {/* Gallery Grid */}
+        {project.galleryImages && project.galleryImages.length > 0 && (
+          <div className="mb-10">
+            <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
+              <Images className="w-3.5 h-3.5 text-zinc-400" />
+              Project Gallery
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {project.galleryImages.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-2xl border border-zinc-200 shadow-sm aspect-[4/3] group"
+                  onClick={() => setLightboxIndex(i + 1)}
+                >
+                  <LazyImage
+                    src={img}
+                    alt={`${project.title} gallery ${i + 1}`}
+                    className="w-full h-full rounded-2xl"
+                  />
+                  <div className="absolute inset-0 bg-zinc-900/0 group-hover:bg-zinc-900/5 transition-all duration-300 rounded-2xl" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Bottom spacer */}
         <div className="mt-16 pt-8 border-t border-zinc-200/60">
@@ -283,8 +272,66 @@ export default function ProjectPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#0d0d0d] text-zinc-400 border-t border-zinc-900 py-10 px-6 mt-16">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[10px] text-zinc-650">
+      <footer id="main-footer" className="bg-[#0d0d0d] text-zinc-400 border-t border-zinc-900 py-16 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-zinc-850 pb-12 mb-8">
+          <div className="md:col-span-4 flex flex-col gap-4">
+            <button onClick={() => navigate('/')} className="flex items-center gap-2 cursor-pointer text-left">
+              <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center flex-shrink-0 shadow-sm">
+                <span className="font-display font-black text-[13px] tracking-[-0.05em] text-zinc-950 leading-none">LP</span>
+              </div>
+              <span className="font-display font-extrabold text-[15px] tracking-tight text-white">
+                Lazar<span className="text-zinc-500 font-light"> Petkovic</span>
+              </span>
+            </button>
+            <p className="font-sans text-xs text-zinc-500 leading-relaxed max-w-xs">
+              Systematic Web Developer and Frontend Engineer crafting high-fidelity digital platforms, scalable CMS layouts, and fast interactive codebases in Europe.
+            </p>
+          </div>
+
+          <div className="md:col-span-3 flex flex-col gap-3">
+            <h4 className="font-sans text-[10px] font-black uppercase tracking-widest text-zinc-500">Address</h4>
+            <p className="font-sans text-xs text-zinc-300 leading-relaxed">
+              Niš, Serbia
+            </p>
+          </div>
+
+          <div className="md:col-span-3 flex flex-col gap-3">
+            <h4 className="font-sans text-[10px] font-black uppercase tracking-widest text-zinc-500">Email Address</h4>
+            <p className="font-sans text-xs text-zinc-300">
+              lazarpetkovic.web@gmail.com
+            </p>
+          </div>
+
+          <div className="md:col-span-2 flex flex-col gap-3">
+            <h4 className="font-sans text-[10px] font-black uppercase tracking-widest text-zinc-500">Social Connect</h4>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://github.com/lazar7cf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/lazarpetkovic99/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a 
+                href="mailto:lazarpetkovic.web@gmail.com" 
+                className="p-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[10px] text-zinc-650">
           <span>
             &copy; {new Date().getFullYear()} LAZAR PETKOVIC. ALL RIGHTS RESERVED.
           </span>

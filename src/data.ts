@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     link: "https://www.rb-construction75.rs/",
     category: "Real Estate",
     caseStudy: {
-      challenge: "RB Construction needed a modern digital presence to showcase their residential building project, with clear apartment layouts, pricing tiers, and a streamlined inquiry system — all while maintaining a trustworthy, premium feel.",
+      challenge: "RB Construction needed a modern digital presence to showcase their residential building project, with clear apartment layouts, pricing tiers, and a streamlined inquiry system - all while maintaining a trustworthy, premium feel.",
       solution: "Built a custom Webflow CMS with dynamic apartment catalog, interactive floor plan viewer, and automated contact forms. Implemented fast-loading image grids and SEO-optimized content structure.",
       techStack: ["Webflow", "CMS", "JavaScript", "SEO"],
     },
@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
     link: "",
     category: "Restaurant",
     caseStudy: {
-      challenge: "An Italian restaurant needed a website that matched the quality of their dining experience — showcasing their menu, atmosphere, and reservation process in an elegant, appetizing way.",
+      challenge: "An Italian restaurant needed a website that matched the quality of their dining experience - showcasing their menu, atmosphere, and reservation process in an elegant, appetizing way.",
       solution: "Created a visual-first design with high-quality food photography, a categorized menu system, and seamless reservation flow. Used warm tones and typography to reflect the restaurant's brand identity.",
       techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
     },
@@ -165,7 +165,7 @@ export const PROJECTS: Project[] = [
     link: "",
     category: "Restaurant",
     caseStudy: {
-      challenge: "An existing restaurant site needed a complete visual and structural overhaul — the old design felt dated, navigation was clunky, and mobile experience was poor.",
+      challenge: "An existing restaurant site needed a complete visual and structural overhaul - the old design felt dated, navigation was clunky, and mobile experience was poor.",
       solution: "Full redesign with modern typography, streamlined menu presentation, mobile-first layout, and improved call-to-action placement for reservations. Retained brand colors while refreshing everything else.",
       techStack: ["Next.js", "Tailwind CSS", "Mobile First", "UX Redesign"],
     },

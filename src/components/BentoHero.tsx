@@ -57,7 +57,7 @@ export default function BentoHero() {
           </div>
           <div className="md:col-span-4 lg:pt-6 md:pl-4">
             <p className="font-sans text-sm sm:text-[15px] text-zinc-500 leading-relaxed font-normal mb-1">
-              Hi, I'm Lazar Petkovic, a Niš-based Fullstack Web Developer & UI Engineer. I build premium, lightning-fast Next.js applications, scalable React architectures, and polished digital experiences from Serbia.
+              Hi, I'm Lazar Petkovic, a Niš-based Fullstack Web Developer & Next.js Expert. I build premium, lightning-fast Next.js applications, scalable React architectures, and polished digital experiences from Serbia.
             </p>
           </div>
         </div>

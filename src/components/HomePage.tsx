@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import BentoHero from './BentoHero';
 import ProjectsSection from './ProjectsSection';
@@ -9,6 +10,7 @@ import ContactSection from './ContactSection';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen bg-zinc-50 text-zinc-900 overflow-x-hidden antialiased">
       
@@ -44,14 +46,14 @@ export default function HomePage() {
           
           {/* Brand Col */}
           <div className="md:col-span-4 flex flex-col gap-4">
-            <div className="flex items-center gap-2">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 cursor-pointer text-left">
               <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center flex-shrink-0 shadow-sm">
                 <span className="font-display font-black text-[13px] tracking-[-0.05em] text-zinc-950 leading-none">LP</span>
               </div>
               <span className="font-display font-extrabold text-[15px] tracking-tight text-white">
                 Lazar<span className="text-zinc-500 font-light"> Petkovic</span>
               </span>
-            </div>
+            </button>
             <p className="font-sans text-xs text-zinc-500 leading-relaxed max-w-xs">
               Systematic Web Developer and Frontend Engineer crafting high-fidelity digital platforms, scalable CMS layouts, and fast interactive codebases in Europe.
             </p>
