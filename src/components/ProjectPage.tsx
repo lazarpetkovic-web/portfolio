@@ -284,7 +284,7 @@ export default function ProjectPage() {
               </span>
             </button>
             <p className="font-sans text-xs text-zinc-500 leading-relaxed max-w-xs">
-              Systematic Web Developer and Frontend Engineer crafting high-fidelity digital platforms, scalable CMS layouts, and fast interactive codebases in Europe.
+              Systematic Next.js Developer and Frontend Engineer crafting high-fidelity digital platforms, scalable CMS layouts, and fast interactive codebases in Europe.
             </p>
           </div>
 

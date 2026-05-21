@@ -30,7 +30,7 @@ export default function BentoHero() {
         {/* ================= HERO TEXT & PORTRAIT (DUWY STYLE ROW 1) ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-2">
           <h1 className="font-display font-extrabold text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] uppercase tracking-[-0.04em] text-zinc-900 leading-[0.8] select-none">
-            Web
+            Next.js
           </h1>
           
           {/* Portrait Image Block */}
@@ -57,7 +57,7 @@ export default function BentoHero() {
           </div>
           <div className="md:col-span-4 lg:pt-6 md:pl-4">
             <p className="font-sans text-sm sm:text-[15px] text-zinc-500 leading-relaxed font-normal mb-1">
-              Hi, I'm Lazar Petkovic, a Niš-based Fullstack Web Developer & Next.js Expert. I build premium, lightning-fast Next.js applications, scalable React architectures, and polished digital experiences from Serbia.
+              Hi, I'm Lazar Petkovic, a Niš-based Next.js Developer. I build premium, lightning-fast Next.js applications, scalable React architectures, and polished digital experiences from Serbia.
             </p>
           </div>
         </div>
@@ -152,18 +152,21 @@ export default function BentoHero() {
                 </p>
               </div>
 
-              {/* Stat 3: Tech Excellence */}
+              {/* Stat 3: Fast Delivery */}
               <div className="border-t border-zinc-200 pt-6">
                 <div className="flex items-baseline gap-2 mb-1.5">
                   <span className="font-display font-black text-6xl text-zinc-900 leading-none">
-                    100%
+                    48-72h
+                  </span>
+                  <span className="font-display font-bold text-xl text-zinc-900">
+                    Delivery
                   </span>
                 </div>
                 <h4 className="font-display font-bold text-lg text-zinc-900 mb-1">
-                  Absolute Client Trust Rate
+                  Rapid Next.js Project Turnaround
                 </h4>
                 <p className="font-sans text-xs text-zinc-500 leading-relaxed max-w-sm">
-                  Guaranteeing clean code structures, excellent accessibility compliance, solid search performance indexing, and direct communication support channels.
+                  Send me a full brief, Figma file, or just a text idea - and I deliver a production-ready Next.js project within 48 to 72 hours. No endless meetings, just fast execution.
                 </p>
               </div>
 
