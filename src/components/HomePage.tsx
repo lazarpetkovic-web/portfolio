@@ -70,9 +70,9 @@ export default function HomePage() {
           {/* Details Col 2: Email */}
           <div className="md:col-span-3 flex flex-col gap-3">
             <h4 className="font-sans text-[10px] font-black uppercase tracking-widest text-zinc-500">Email Address</h4>
-            <p className="font-sans text-xs text-zinc-300">
+            <a href="mailto:lazarpetkovic.web@gmail.com" className="font-sans text-xs text-zinc-300 hover:text-white transition-colors">
               lazarpetkovic.web@gmail.com
-            </p>
+            </a>
           </div>
 
           {/* Details Col 3: Social list */}

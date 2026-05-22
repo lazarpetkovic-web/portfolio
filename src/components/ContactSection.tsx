@@ -172,27 +172,7 @@ export default function ContactSection() {
               ))}
             </div>
 
-            {/* Bottom: Direct email CTA */}
-            <div className="mt-auto pt-6 border-t border-zinc-800 flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider">Available for new projects</span>
-              </div>
-              <a
-                href="mailto:lazarpetkovic.web@gmail.com"
-                id="direct-email-btn"
-                className="group flex items-center justify-between w-full px-5 py-4 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all duration-300"
-              >
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-zinc-400" />
-                  <span className="font-mono text-xs text-white font-medium">lazarpetkovic.web@gmail.com</span>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-              </a>
-              <p className="font-sans text-[11px] text-zinc-600 leading-relaxed">
-                I typically respond within <span className="text-zinc-400 font-semibold">24 hours</span>. For urgent projects, reach out directly via email.
-              </p>
-            </div>
+
 
           </div>
 
@@ -200,6 +180,29 @@ export default function ContactSection() {
           <div className="lg:col-span-7">
             <div className="bg-zinc-950 p-8 rounded-3xl border border-zinc-800 h-full flex flex-col justify-between transition-all duration-500 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-900/20">
               
+              <div className="flex flex-col gap-1 mb-2">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                  // Get in touch
+                </span>
+                <h3 className="font-display font-bold text-2xl text-white leading-tight">
+                  Contact Me
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider">Available for new projects</span>
+                </div>
+                <span className="text-zinc-700 text-[10px] hidden sm:inline">|</span>
+                <a href="mailto:lazarpetkovic.web@gmail.com" className="font-mono text-[11px] text-zinc-300 hover:text-white transition-colors underline underline-offset-2">
+                  lazarpetkovic.web@gmail.com
+                </a>
+              </div>
+              <p className="font-sans text-[11px] text-zinc-600 leading-relaxed mb-4">
+                I typically respond within <span className="text-zinc-400 font-semibold">24 hours</span>. For urgent projects, reach out directly via email.
+              </p>
+
               {!submittingSuccess ? (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6" id="inquiry-form">
                   {errorMessage && (
@@ -259,7 +262,7 @@ export default function ContactSection() {
                       </span>
                     ) : (
                       <span className="flex items-center gap-2">
-                        Send Project Brief
+                        Send Message
                         <Send className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                       </span>
                     )}
