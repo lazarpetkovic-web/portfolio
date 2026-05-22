@@ -89,18 +89,18 @@ export default function ContactSection() {
   const briefItems = [
     {
       icon: FileText,
-      label: 'Project Type',
-      desc: 'Webflow site, Next.js app, redesign, or something custom - briefly describe what you need built.'
+      label: 'Project Scope',
+      desc: 'Whether it\'s a Next.js website, Webflow project, redesign, or custom build, we\'ll define the project scope, key requirements, and expected outcomes upfront.'
     },
     {
       icon: MessageSquare,
-      label: 'Goals & Requirements',
-      desc: 'Share your key goals, must-have features, design references, or any specific integrations needed.'
+      label: 'Planning & Execution',
+      desc: 'Once the direction is clear, I handle the development process from structure and responsiveness to performance optimization and production-ready implementation.'
     },
     {
       icon: Clock,
-      label: 'Timeline & Budget',
-      desc: 'Let me know your preferred launch window and rough budget range so I can plan accordingly.'
+      label: 'Launch & Delivery',
+      desc: 'Projects are delivered with clean code, optimized performance, and a streamlined handoff process - ready for launch, scaling, or agency delivery.'
     }
   ];
 
@@ -147,13 +147,13 @@ export default function ContactSection() {
             {/* Top: Intro text */}
             <div className="flex flex-col gap-3">
               <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-                // How to reach out
+                // White-Label Process
               </span>
               <h3 className="font-display font-bold text-2xl text-white leading-tight">
-                Send me your project brief
+                How Collaboration Works
               </h3>
               <p className="font-sans text-sm text-zinc-400 leading-relaxed">
-                The best way to kick things off is a short, clear brief. You don't need a full specification - just give me enough context to understand your vision and I'll take it from there.
+                The process starts with a short project brief outlining your goals, timeline, and overall vision. You don't need a full technical specification - just enough context for me to understand what needs to be built.
               </p>
             </div>
 

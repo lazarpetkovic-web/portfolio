@@ -11,15 +11,8 @@ export default function BentoHero() {
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      const y = element.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -64,13 +57,13 @@ export default function BentoHero() {
 
         {/* ================= INTERACTIVE BRAND PILLS CONVEYOR ================= */}
         <div className="border-t border-b border-zinc-200/80 py-6 mb-20">
-          <div className="flex flex-wrap lg:flex-nowrap justify-between items-center gap-6 lg:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-nowrap justify-between items-center gap-3 lg:gap-4">
             {['Next.js', 'TypeScript', 'React', 'Supabase', 'Figma UX', 'Tailwind CSS', 'PostgreSQL', 'REST APIs'].map((techName, index) => (
               <div 
                 key={index} 
-                className="flex items-center gap-2.5 px-5 py-2.5 bg-white rounded-full border border-zinc-200/60 shadow-xs font-mono text-[11px] text-zinc-700 font-semibold"
+                className="flex items-center gap-2.5 px-5 py-2.5 bg-white rounded-full border border-zinc-200/60 shadow-xs font-mono text-[11px] text-zinc-700 font-semibold justify-center lg:justify-start"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0"></span>
                 {techName}
               </div>
             ))}

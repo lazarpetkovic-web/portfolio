@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header';
 import BentoHero from './BentoHero';
 import ProjectsSection from './ProjectsSection';
@@ -11,6 +11,24 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const scrollToId = location.state?.scrollTo as string | undefined;
+    if (scrollToId) {
+      window.history.replaceState({}, document.title);
+      const timer = setTimeout(() => {
+        const element = document.getElementById(scrollToId);
+        if (element) {
+          const offset = 80;
+          const y = element.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
+
   return (
     <div className="relative min-h-screen bg-zinc-50 text-zinc-900 overflow-x-hidden antialiased">
       
