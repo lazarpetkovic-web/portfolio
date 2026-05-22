@@ -65,7 +65,7 @@ export default function BentoHero() {
         {/* ================= INTERACTIVE BRAND PILLS CONVEYOR ================= */}
         <div className="border-t border-b border-zinc-200/80 py-6 mb-20">
           <div className="flex flex-wrap lg:flex-nowrap justify-between items-center gap-6 lg:gap-4">
-            {['Next.js 14', 'TypeScript', 'React 19', 'Webflow', 'Figma UX', 'Tailwind CSS', 'PostgreSQL', 'REST APIs'].map((techName, index) => (
+            {['Next.js', 'TypeScript', 'React', 'Supabase', 'Figma UX', 'Tailwind CSS', 'PostgreSQL', 'REST APIs'].map((techName, index) => (
               <div 
                 key={index} 
                 className="flex items-center gap-2.5 px-5 py-2.5 bg-white rounded-full border border-zinc-200/60 shadow-xs font-mono text-[11px] text-zinc-700 font-semibold"
