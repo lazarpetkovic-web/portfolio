@@ -46,7 +46,13 @@ After discovery, summarize in a concise bullet list:
 
 ## Phase 2 — EXECUTOR (DeepSeek V4 Flash)
 
-When approved, spawn an executor agent. Use the prompt template matching the chosen stack.
+When approved, spawn an executor agent. **The executor has access to these auto-loaded skills** in `.claude/skills/`:
+- `nextjs` — Next.js 15+ App Router patterns, Server Components, data fetching, layouts, server actions
+- `react` — React 19 patterns, hooks, Server Components, Suspense, error boundaries
+- `tailwindcss` — Tailwind v4 utilities, responsive design, `@theme` configuration
+- `shadcn` — shadcn/ui component patterns, form handling, dialog/sheet patterns
+
+The executor will use these skills automatically. Use the prompt template matching the chosen stack.
 
 ### For Next.js projects:
 

@@ -1,5 +1,18 @@
 # Lazar Petkovic Portfolio
 
+## Skills available
+This project includes auto-loaded skills in `.claude/skills/`:
+
+| Skill | Source | Purpose |
+|---|---|---|
+| `new-project` | Custom | Two-phase scaffold: Brain (Pro) discovers, Executor (Flash) builds. Next.js and cPanel lanes. |
+| `nextjs` | blencorp/claude-code-kit | Next.js 15+ App Router: Server Components, data fetching, layouts, server actions |
+| `react` | blencorp/claude-code-kit | React 19: hooks, Server Components, Suspense, error boundaries |
+| `tailwindcss` | blencorp/claude-code-kit | Tailwind v4: utilities, responsive design, `@theme` config |
+| `shadcn` | blencorp/claude-code-kit | shadcn/ui: component patterns, forms, dialogs, sheets |
+
+The `frontend-design` plugin (Anthropic official) is also built into Claude Code — it activates automatically on UI/frontend prompts.
+
 ## Stack
 - React 19 + TypeScript + Vite 6
 - Tailwind CSS 4, Framer Motion (`motion` package)
