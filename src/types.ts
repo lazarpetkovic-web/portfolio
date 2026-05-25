@@ -40,11 +40,3 @@ export interface TimelineEvent {
   description: string;
 }
 
-export interface ContactInquiry {
-  name: string;
-  email: string;
-  projectType: string;
-  budget: string;
-  message: string;
-  createdAt: string;
-}

@@ -44,9 +44,9 @@ export default function BentoHero() {
         {/* ================= HERO TEXT & DESCRIPTION (DUWY STYLE ROW 2) ================= */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start mb-16">
           <div className="md:col-span-8">
-            <h1 className="font-display font-extrabold text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] uppercase tracking-[-0.04em] text-zinc-900 leading-[0.8] select-none">
+            <p className="font-display font-extrabold text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] uppercase tracking-[-0.04em] text-zinc-900 leading-[0.8] select-none">
               Developer
-            </h1>
+            </p>
           </div>
           <div className="md:col-span-4 lg:pt-6 md:pl-4">
             <p className="font-sans text-sm sm:text-[15px] text-zinc-500 leading-relaxed font-normal mb-1">

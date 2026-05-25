@@ -19,7 +19,7 @@ export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [visibleCount, setVisibleCount] = useState(PER_PAGE);
 
-  const categories = ['All', 'Real Estate', 'Restaurant', 'Logistics', 'Hospitality', 'Interior Design', 'Construction', 'Corporate'];
+  const categories = ['All', 'SaaS', 'Real Estate', 'Restaurant', 'Logistics', 'Hospitality', 'Interior Design', 'Construction', 'Corporate'];
 
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter(project => {

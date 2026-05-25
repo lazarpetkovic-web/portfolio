@@ -72,6 +72,26 @@ export const TIMELINE: TimelineEvent[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 18,
+    title: "Karios",
+    description:
+      "Real-time intelligence platform for engineering teams. Karios monitors workflows in real time, surfaces anomalies before they compound, and gives teams the context to act - featuring smart queues, natural language queries, live health status monitoring, and seamless integrations with tools like Slack, GitHub, Datadog, and more.",
+    image: "/projects/kairos/main.jpg",
+    galleryImages: [
+      "/projects/kairos/gallery-1.jpg",
+      "/projects/kairos/gallery-2.jpg",
+      "/projects/kairos/gallery-3.jpg",
+    ],
+    tags: ["SaaS", "Real-time", "Monitoring"],
+    link: "https://karios-iota.vercel.app/",
+    category: "SaaS",
+    caseStudy: {
+      challenge: "Karios needed a high-conversion landing page that communicated complex real-time monitoring capabilities to both technical decision-makers and engineering teams. The challenge was to showcase powerful backend features - smart queuing, anomaly detection, natural language querying - in an instantly understandable, visually compelling way without overwhelming visitors.",
+      solution: "Designed and built a clean, modern SaaS landing page with live-demo visual elements (metrics stream, health status indicators, smart queue UI) to instantly convey product value. Used a dark-accented palette, clear feature sections, tiered pricing, social proof, and a friction-free early access flow to drive conversions.",
+      techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    },
+  },
+  {
     id: 1,
     title: "RB Construction",
     description:

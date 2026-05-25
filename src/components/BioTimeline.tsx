@@ -8,7 +8,7 @@ import { TIMELINE } from '../data';
 
 export default function BioTimeline() {
   return (
-    <section id="bio-section" className="relative py-24 bg-zinc-50 border-b border-zinc-200/40 scroll-mt-24">
+    <section id="experience-section" className="relative py-24 bg-zinc-50 border-b border-zinc-200/40 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Experience Label tag */}

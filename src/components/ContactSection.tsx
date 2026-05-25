@@ -3,50 +3,29 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Send,
   CheckCircle2,
   AlertCircle,
-  Mail,
   FileText,
   Clock,
   MessageSquare,
   ArrowUpRight
 } from 'lucide-react';
-import { ContactInquiry } from '../types';
 
 export default function ContactSection() {
-  // Form elements state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-
-  // Form submitting and validation states
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittingSuccess, setSubmittingSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Inquiry list
-  const [inquiries, setInquiries] = useState<ContactInquiry[]>([]);
-
-  // Load historic inquiries from local storage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem('lp_portfolio_inquiries');
-    if (stored) {
-      try {
-        setInquiries(JSON.parse(stored));
-      } catch (e) {
-        console.error('Failed to parse inquiries:', e);
-      }
-    }
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
 
-    // Field Validation
     if (!name.trim()) {
       setErrorMessage('Full Name is required');
       return;
@@ -62,28 +41,32 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      const newInquiry: ContactInquiry = {
-        name,
-        email,
-        projectType: 'Direct Inquiry',
-        budget: 'TBD',
-        message,
-        createdAt: new Date().toISOString()
-      };
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+      });
 
-      const updated = [newInquiry, ...inquiries];
-      setInquiries(updated);
-      localStorage.setItem('lp_portfolio_inquiries', JSON.stringify(updated));
+      const data = await response.json();
 
-      setIsSubmitting(false);
-      setSubmittingSuccess(true);
+      if (!response.ok) {
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
       setMessage('');
-    }, 1200);
+    } catch {
+      setErrorMessage('Network error. Please check your connection and try again.');
+    }
+
+    setIsSubmitting(false);
   };
 
   const resetSuccessState = () => {
-    setSubmittingSuccess(false);
+    setSubmitted(false);
   };
 
   const briefItems = [
@@ -203,7 +186,7 @@ export default function ContactSection() {
                 I typically respond within <span className="text-zinc-400 font-semibold">24 hours</span>. For urgent projects, reach out directly via email.
               </p>
 
-              {!submittingSuccess ? (
+              {!submitted ? (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6" id="inquiry-form">
                   {errorMessage && (
                     <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-2 text-xs text-red-400">
@@ -284,23 +267,6 @@ export default function ContactSection() {
                   >
                     Send Another Message
                   </button>
-                </div>
-              )}
-
-              {/* localStorage persistent records log */}
-              {inquiries.length > 0 && (
-                <div className="border-t border-zinc-800 pt-6 mt-8">
-                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest block mb-3 font-semibold">
-                    Submitted Logs (LocalStorage Cache)
-                  </span>
-                  <div className="flex flex-col gap-2 max-h-24 overflow-y-auto">
-                    {inquiries.slice(0, 2).map((inq, index) => (
-                      <div key={index} className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 flex justify-between items-center text-[10px] font-mono">
-                        <span className="text-white truncate max-w-[150px]">{inq.name}</span>
-                        <span className="text-zinc-500 text-[9px]">{inq.projectType}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               )}
 
