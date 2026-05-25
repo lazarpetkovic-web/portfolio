@@ -1,186 +1,165 @@
 # /new-project — Scaffold a Next.js Client Project
 
-Use this skill when the user asks to start a new client project. Guide them through scaffolding a production-ready Next.js site optimized for fast delivery (48-72h target), using Lazar's preferred stack.
+Two-phase workflow: **Brain (Pro)** plans and asks questions, **Executor (Flash)** writes all the code.
+
+---
+
+## Phase 1 — BRAIN (DeepSeek V4 Pro — this model)
+
+Do NOT write any code in this phase. Only discover, plan, and get approval.
+
+### Discovery
+Ask the user only the essential questions. Don't over-plan — Lazar delivers in 48-72h.
+
+1. **Project type**: New site / Figma-to-code / platform migration / redesign
+2. **Brief description**: What does the client do? (1-2 sentences)
+3. **Pages needed**: Home, About, Services, Contact, Blog, Projects, etc.
+4. **CMS needed?**: None / Sanity / Strapi / Contentful
+5. **Special features?**: Booking, multi-language, dark mode, auth, etc.
+6. **Figma link** (if applicable)
+7. **Project name** (kebab-case, used for the folder name)
+
+### Plan
+After discovery, summarize the plan in a concise bullet list:
+- Project name and folder
+- Tech stack (based on defaults below + any additions from discovery)
+- Page list with route structure
+- Component tree (layout shell + section components per page)
+- Data sources (CMS schemas if applicable, API endpoints)
+- Estimated file count
+
+**CRITICAL**: Present the plan and wait for user approval. Do NOT proceed to Phase 2 until the user says "go", "execute", "approved", etc.
+
+---
+
+## Phase 2 — EXECUTOR (DeepSeek V4 Flash)
+
+When the user approves, spawn an executor agent to write all the code:
+
+```
+Agent({
+  description: "Scaffold Next.js project",
+  subagent_type: "general-purpose",
+  model: "haiku",
+  prompt: """
+    You are the executor. Follow this exact plan. Write ALL files. Do NOT ask questions — just build.
+
+    [COPY THE APPROVED PLAN + FULL TECH SPECS HERE]
+    [COPY THE STACK DEFAULTS SECTION BELOW]
+    [COPY THE PROJECT STRUCTURE SECTION BELOW]
+    [COPY THE SEO BOILERPLATE SECTION BELOW]
+    [COPY THE TAILWIND PATTERNS SECTION BELOW]
+    [COPY THE SPEED PRINCIPLES SECTION BELOW]
+  """
+})
+```
+
+**Rules for the executor prompt**:
+- Paste the FULL plan the user approved — every page, every component, every CMS schema
+- Paste ALL sections below (Stack defaults, Project structure, SEO boilerplate, etc.)
+- The executor must write every file in sequence: scaffold → deps → layout → pages → CMS → forms → deploy check
+- The executor must end by running `npm run build` and reporting pass/fail
+
+---
 
 ## Stack defaults
-- **Next.js 15+** (App Router, unless Pages Router is needed for CMS reasons)
-- **TypeScript** (strict mode)
-- **Tailwind CSS 4** with `@tailwindcss/postcss`
-- **Framer Motion** (`motion` package)
-- **lucide-react** for icons
-- **next/font** for Google Fonts (Inter + any brand font)
-- Deploy target: **Vercel**
 
-## Step 1 — Discover the project
+Copy this section verbatim into every executor prompt:
 
-Ask the user only the essential questions. Don't over-plan — Lazar delivers fast.
+```
+## Stack
+- Next.js 15+ (App Router, TypeScript strict, Tailwind CSS 4, Turbopack)
+- motion (Framer Motion) for animations
+- lucide-react for icons
+- next/font for Google Fonts (default: Inter for body, Plus Jakarta Sans for headings)
+- Deploy target: Vercel
 
-1. **Project type**: 
-   - New Next.js site from scratch
-   - Figma-to-Next.js implementation
-   - Webflow/other platform → Next.js migration
-   - Site redesign in Next.js
-2. **Brief description**: What does the client do? (1-2 sentences)
-3. **Pages needed**: Home, About, Services, Contact, Blog, Projects, etc.?
-4. **CMS needed?**: None / Sanity / Strapi / Contentful
-5. **Any special features?**: Booking system, multi-language, dark mode, auth, dashboard, etc.
-6. **Client Figma file link** (if applicable)
-
-## Step 2 — Scaffold the project
-
-```bash
+## Scaffold command
 npx create-next-app@latest <project-name> --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --turbopack
-```
 
-Then install additional dependencies:
-
-```bash
+## Core dependencies (always install)
 npm install motion lucide-react
+
+## Conditional dependencies
+- CMS Sanity: npm install next-sanity @sanity/client @sanity/image-url
+- CMS Contentful: npm install contentful
+- Multi-language: npm install next-intl
+- Forms: npm install resend react-hook-form zod @hookform/resolvers
 ```
 
-If CMS:
-- Sanity: `npm install next-sanity @sanity/client @sanity/image-url`
-- Strapi: No extra packages needed (use REST API)
-- Contentful: `npm install contentful`
+---
 
-If multi-language:
-```bash
-npm install next-intl
-```
+## Project structure
 
-If booking/forms:
-```bash
-npm install resend react-hook-form zod @hookform/resolvers
-```
-
-## Step 3 — Set up project structure
-
-Create this folder structure inside `src/`:
+Copy this section verbatim into every executor prompt:
 
 ```
+## Folder structure
+Create this structure inside src/:
+
 src/
   app/
-    layout.tsx          — Root layout with fonts, metadata, providers
+    layout.tsx          — Root layout with fonts, metadata
     page.tsx            — Homepage
     globals.css         — Tailwind + global styles
-    (pages)/            — Optional route group for static pages
-      about/page.tsx
-      services/page.tsx
-      contact/page.tsx
-      projects/page.tsx
-    blog/
-      page.tsx
-      [slug]/page.tsx
+    robots.ts           — Robots file pointing to sitemap
+    sitemap.ts          — Dynamic sitemap
+    (pages)/            — Route group for static pages
     api/
       contact/route.ts  — Contact form handler (Resend)
   components/
     layout/
-      Header.tsx
-      Footer.tsx
-    ui/                 — Reusable UI primitives (Button, Container, etc.)
+      Header.tsx        — Sticky header, scroll detection, mobile drawer
+      Footer.tsx        — Address, email, social columns
+    ui/                 — Reusable primitives (Button, Container, Section)
     sections/           — Page-specific sections (Hero, Features, CTA, etc.)
-    projects/
-      ProjectCard.tsx
-      ProjectGrid.tsx
   lib/
-    utils.ts            — cn() helper, formatDate, etc.
-    constants.ts        — Site-wide constants (nav items, social links, etc.)
+    utils.ts            — cn() helper from clsx/tailwind-merge
+    constants.ts        — Nav items, social links, site config
   types/
     index.ts            — Shared TypeScript types
 ```
 
-## Step 4 — Apply Lazar's SEO boilerplate
+---
 
-Set up `src/app/layout.tsx` with comprehensive SEO:
+## SEO boilerplate
 
-```tsx
-import type { Metadata } from 'next';
+Copy this section verbatim into every executor prompt:
 
-export const metadata: Metadata = {
-  title: {
-    default: '<Client Name> — <Tagline>',
-    template: '%s | <Client Name>',
-  },
-  description: '<client description>',
-  metadataBase: new URL('https://<domain>.com'),
-  openGraph: {
-    title: '<Client Name>',
-    description: '<client description>',
-    url: 'https://<domain>.com',
-    siteName: '<Client Name>',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '<Client Name>',
-    description: '<client description>',
-    images: ['/og-image.jpg'],
-  },
-  robots: { index: true, follow: true },
-};
+```
+## SEO requirements
+- layout.tsx must export a Metadata object with: title template, description, metadataBase, openGraph (full), twitter (summary_large_image), robots (index+follow)
+- robots.ts must allow all crawlers and point to sitemap
+- sitemap.ts must list all static pages
+- Add JSON-LD structured data as a <script> tag in layout.tsx (Organization or LocalBusiness schema matching the client)
+- All images use next/image with explicit width/height and alt text
+- Semantic HTML: one <h1> per page, proper section/article/nav/main landmarks
 ```
 
-Always include:
-- `robots.ts` at `src/app/robots.ts` → points to sitemap
-- `sitemap.ts` at `src/app/sitemap.ts` → dynamic sitemap
-- JSON-LD structured data (Organization / LocalBusiness / WebSite as fitting)
+---
 
-## Step 5 — Apply Lazar's Tailwind patterns
+## Tailwind patterns
 
-In `globals.css`:
-```css
-@import "tailwindcss";
+Copy this section verbatim into every executor prompt:
 
-@theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: /* client's brand font or Inter */;
-  --color-brand: /* client's primary brand color */;
-}
+```
+## Styling rules
+- globals.css uses @import "tailwindcss" with @theme block
+- Font variables: --font-sans (Inter), --font-display (client brand or Plus Jakarta Sans)
+- Brand color: extract from Figma or client logo, set as --color-brand in @theme
+- Use Tailwind's built-in zinc/gray scale for neutrals — don't invent colors
+- Consistent spacing: sections get py-24, containers get max-w-7xl mx-auto px-6 sm:px-8 lg:px-12
+- All interactive elements have transition-all duration-300
 ```
 
-## Step 6 — Build the layout shell
+---
 
-Create `Header.tsx` and `Footer.tsx` in `src/components/layout/`. Use Lazar's patterns: sticky header with scroll detection, mobile drawer navigation, clean footer with address/social/email columns.
+## Speed principles (for the executor)
 
-## Step 7 — Build pages
-
-Build pages in priority order. Use server components by default. Only add `'use client'` for interactive elements (navigation, forms, animations). Leverage:
-- `next/image` for all images
-- `motion` (Framer Motion) for scroll reveals and page transitions
-- Semantic HTML (`<section>`, `<article>`, `<nav>`, `<main>`)
-- Proper heading hierarchy (one `<h1>` per page)
-
-## Step 8 — CMS setup (if needed)
-
-**Sanity** (preferred):
-- Install: `npm install next-sanity @sanity/client @sanity/image-url`
-- Follow [next-sanity docs](https://www.sanity.io/docs/next-js) for studio setup
-- Create schemas for: page content, blog posts, projects, testimonials
-
-**Contentful**:
-- Install: `npm install contentful`
-- Create client in `src/lib/contentful.ts`
-- Use GraphQL or REST queries in server components
-
-## Step 9 — Forms
-
-For contact forms, use Resend (Lazar already has an account):
-- Create `src/app/api/contact/route.ts` (Next.js App Router route handler)
-- Use `react-hook-form` + `zod` for client-side validation
-- POST to the route handler, which sends via Resend
-
-## Step 10 — Deploy prep
-
-- `next build` must pass with zero errors
-- Run `next build` and fix any issues
-- Verify: `robots.txt`, `sitemap.xml`, JSON-LD, meta tags, OG image all present
-- Push to GitHub, connect to Vercel, deploy
-- Add domain + env vars in Vercel dashboard
-
-## Speed principles
-- **Reuse, don't rewrite** — Lazar's existing component patterns (Header scroll detection, mobile drawer, footer layout) should be adapted, not rebuilt from scratch each time
-- **Server components first** — only add `'use client'` when you actually need interactivity
-- **Don't over-engineer** — build exactly what the brief needs, no speculative features
-- **Leverage the ecosystem** — use established libraries, don't build custom solutions for solved problems
+```
+- Server components by default — only 'use client' when interactivity demands it
+- Reuse patterns: scroll detection in Header, mobile drawer, footer layout
+- No speculative features — build exactly what the plan says
+- Library-first: next/image, motion, lucide-react, react-hook-form — don't reinvent
+- End every execution with: npm run build and report the result
+```
