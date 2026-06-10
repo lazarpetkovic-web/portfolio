@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
       "/projects/lusso-restoran/gallery-2.avif",
     ],
     tags: ["Restaurant", "Fine Dining"],
-    link: "",
+    link: "https://www.lussorestoran.rs/",
     category: "Restaurant",
     caseStudy: {
       challenge: "An Italian restaurant needed a website that matched the quality of their dining experience - showcasing their menu, atmosphere, and reservation process in an elegant, appetizing way.",
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
       "/projects/archist-studio/gallery-3.avif",
     ],
     tags: ["Architecture", "Portfolio"],
-    link: "",
+    link: "https://www.archist.rs/",
     category: "Interior Design",
     caseStudy: {
       challenge: "An architecture studio required a portfolio website that could display large-format project images without sacrificing performance, while communicating their design philosophy and range of work.",
@@ -182,7 +182,7 @@ export const PROJECTS: Project[] = [
       "/projects/simple-redizajn/gallery-3.avif",
     ],
     tags: ["Restaurant", "Redesign"],
-    link: "",
+    link: "https://www.simplecafferestaurant.rs/",
     category: "Restaurant",
     caseStudy: {
       challenge: "An existing restaurant site needed a complete visual and structural overhaul - the old design felt dated, navigation was clunky, and mobile experience was poor.",
@@ -237,7 +237,7 @@ export const PROJECTS: Project[] = [
       "Developed to combine sophisticated interior design with personalized space arrangement solutions. Focus on aesthetics, functionality, and high-quality materials, enabling clients to create an ambiance that reflects their style and needs. Showcasing interior design expertise through an elegant digital presence.",
     image: "/projects/brena-decor.jpg",
     tags: ["Interior Design", "Portfolio"],
-    link: "https://www.enterijer-brena-decor.rs/",
+    link: "",
     category: "Interior Design",
     caseStudy: {
       challenge: "An interior design studio required a portfolio site that could showcase before/after transformations and convey their design philosophy to potential clients browsing on any device.",
@@ -317,7 +317,7 @@ export const PROJECTS: Project[] = [
       "/projects/ausleader/gallery-3.jpg",
     ],
     tags: ["Corporate", "Consulting"],
-    link: "",
+    link: "https://www.ausleader.com/",
     category: "Corporate",
     caseStudy: {
       challenge: "A leadership consulting firm needed an authoritative online presence that showcased their expertise, training programs, and client success stories while generating qualified leads.",
@@ -336,7 +336,7 @@ export const PROJECTS: Project[] = [
       "/projects/dekoracije-res/gallery-2.avif",
     ],
     tags: ["Interior Design", "Decoration"],
-    link: "",
+    link: "https://dekoracijeres.rs/",
     category: "Interior Design",
     caseStudy: {
       challenge: "An interior decoration business needed a visual portfolio site to attract residential clients and showcase their range of decorative styles and services.",
@@ -376,7 +376,7 @@ export const PROJECTS: Project[] = [
       "/projects/dj-sync/gallery-3.jpg",
     ],
     tags: ["Entertainment", "Events"],
-    link: "",
+    link: "https://www.dj-sync.rs/",
     category: "Hospitality",
     caseStudy: {
       challenge: "A professional DJ needed a high-energy website that showcased their music portfolio, past event photos, and made it easy for clients to book them for weddings, clubs, and corporate events.",
@@ -396,7 +396,7 @@ export const PROJECTS: Project[] = [
       "/projects/process-in/gallery-3.avif",
     ],
     tags: ["Cafe", "Hospitality"],
-    link: "",
+    link: "https://www.processinbar.rs/",
     category: "Hospitality",
     caseStudy: {
       challenge: "A unique cafe-workspace in Niš needed a website that communicated their dual identity as both a quality coffee spot and a productive workspace, with menu and events information.",
