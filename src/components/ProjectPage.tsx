@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Compass, X, ChevronLeft, ChevronRight, Images, Lightbulb, Target, Code } from 'lucide-react';
 import Footer from './Footer';
@@ -165,7 +165,7 @@ export default function ProjectPage() {
 
         {/* Project Tags */}
         <div className="mb-10">
-          <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
+          <h3 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-200 pb-1.5 font-bold">
             <Compass className="w-3.5 h-3.5 text-zinc-400" />
             Project Tags & Stack
           </h3>
@@ -173,7 +173,7 @@ export default function ProjectPage() {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3.5 py-1.5 text-[10px] font-mono text-zinc-650 bg-zinc-50 border border-zinc-200/80 rounded-xl uppercase font-bold"
+                className="px-3.5 py-1.5 text-[10px] font-mono text-zinc-600 bg-zinc-50 border border-zinc-200/80 rounded-xl uppercase font-bold"
               >
                 {tag}
               </span>
@@ -237,7 +237,7 @@ export default function ProjectPage() {
         {/* Gallery Grid */}
         {project.galleryImages && project.galleryImages.length > 0 && (
           <div className="mb-10">
-            <h3 className="font-mono text-[10px] text-zinc-450 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-250 pb-1.5 font-bold">
+            <h3 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-1.5 border-b border-zinc-200 pb-1.5 font-bold">
               <Images className="w-3.5 h-3.5 text-zinc-400" />
               Project Gallery
             </h3>

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Globe, MessageSquare } from 'lucide-react';
 
@@ -112,7 +112,7 @@ export default function Header() {
             className="p-1.5 text-zinc-700 hover:text-zinc-900 border border-zinc-200 rounded-lg focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="absolute bottom-12 left-8 right-8 flex flex-col gap-4 border-t border-zinc-150 pt-8 font-sans text-xs text-zinc-500">
+        <div className="absolute bottom-12 left-8 right-8 flex flex-col gap-4 border-t border-zinc-200 pt-8 font-sans text-xs text-zinc-500">
           <div className="flex items-center gap-2">
             <Globe className="w-4 h-4 text-zinc-400" />
             <span>Niš, Serbia (CET)</span>

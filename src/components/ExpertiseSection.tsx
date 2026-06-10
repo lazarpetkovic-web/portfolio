@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 
 export default function ExpertiseSection() {

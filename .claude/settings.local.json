@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//tmp/claude-code-kit/cli/kits/react/skills/react/**)",
-      "Read(//tmp/claude-code-kit/cli/kits/tailwindcss/skills/tailwindcss/**)",
-      "Read(//tmp/claude-code-kit/cli/kits/shadcn/skills/shadcn/**)"
-    ]
-  }
-}

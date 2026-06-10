@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
@@ -16,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer id="main-footer" className="relative z-10 bg-[#0d0d0d] text-zinc-400 border-t border-zinc-900 py-16 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-zinc-850 pb-12 mb-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-zinc-800 pb-12 mb-8">
 
         {/* Brand Col */}
         <div className="md:col-span-4 flex flex-col gap-4">

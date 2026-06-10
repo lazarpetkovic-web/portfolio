@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { ArrowUpRight, Code2 } from 'lucide-react';
+import { Code2 } from 'lucide-react';
 
 export default function BentoHero() {
   const scrollToSection = (id: string) => {

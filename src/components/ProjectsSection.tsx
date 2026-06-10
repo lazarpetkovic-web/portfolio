@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   ArrowUpRight, 
@@ -68,7 +68,7 @@ export default function ProjectsSection() {
               key={category}
               id={`filter-tab-${category.toLowerCase().replace(/\s+/g, '-')}`}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4.5 py-2 rounded-full font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-zinc-900 text-white shadow-xs'
                   : 'bg-transparent text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100'
@@ -122,7 +122,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Footer stack tags */}
-                <div className="border-t border-zinc-150 pt-5 mt-6 flex items-center justify-between font-mono text-[11px] text-zinc-400 font-semibold">
+                <div className="border-t border-zinc-200 pt-5 mt-6 flex items-center justify-between font-mono text-[11px] text-zinc-400 font-semibold">
                   <div className="flex flex-wrap gap-1.5 max-w-[70%]">
                     {project.tags.slice(0, 2).map((tag) => (
                       <span key={tag} className="text-zinc-500">#{tag}</span>
