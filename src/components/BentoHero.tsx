@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Code2 } from 'lucide-react';
+import { Code2, MapPin } from 'lucide-react';
 
 export default function BentoHero() {
   const scrollToSection = (id: string) => {
@@ -35,7 +35,7 @@ export default function BentoHero() {
             <div className="absolute inset-0 bg-zinc-900/5 mix-blend-multiply"></div>
             {/* Minimal Location tag in dark gray */}
             <div className="absolute bottom-3 right-3 bg-zinc-900/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-mono uppercase tracking-wider text-white border border-white/10">
-              📍 Niš, SRB
+              <MapPin className="w-3 h-3" /> Niš, SRB
             </div>
           </div>
         </div>

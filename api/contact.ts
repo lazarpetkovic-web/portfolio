@@ -29,7 +29,7 @@ export default async function handler(req: Request): Promise<Response> {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-  if (!email || typeof email !== 'string' || !email.includes('@')) {
+  if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
     return new Response(JSON.stringify({ error: 'A valid email address is required' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },

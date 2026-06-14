@@ -30,7 +30,7 @@ export default function ContactSection() {
       setErrorMessage('Full Name is required');
       return;
     }
-    if (!email.trim() || !email.includes('@')) {
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       setErrorMessage('A valid Email address is required');
       return;
     }

@@ -77,7 +77,7 @@ export default function ProjectPage() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLightboxIndex((prev) => (prev === 0 ? allImages.length - 1 : prev! - 1));
+                  setLightboxIndex((prev) => ((prev ?? 0) === 0 ? allImages.length - 1 : (prev ?? 0) - 1));
                 }}
                 className="absolute left-4 z-10 p-2 text-white/80 hover:text-white bg-zinc-900/60 rounded-full transition-colors"
               >
@@ -86,7 +86,7 @@ export default function ProjectPage() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLightboxIndex((prev) => (prev === allImages.length - 1 ? 0 : prev! + 1));
+                  setLightboxIndex((prev) => ((prev ?? 0) === allImages.length - 1 ? 0 : (prev ?? 0) + 1));
                 }}
                 className="absolute right-4 z-10 p-2 text-white/80 hover:text-white bg-zinc-900/60 rounded-full transition-colors"
               >

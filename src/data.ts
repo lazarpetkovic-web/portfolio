@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Project, SkillGroup, Metric, TimelineEvent } from './types';
+import { Project, SkillGroup, Metric, TimelineEvent, TestimonialData } from './types';
 
 export const METRICS: Metric[] = [
   {
@@ -423,6 +423,17 @@ export const PROJECTS: Project[] = [
       solution: "Complete redesign with modern UI patterns, mobile-first responsive layout, an interactive categorized menu, prominent reservation CTA, and improved contact information accessibility.",
       techStack: ["Next.js", "TypeScript", "Tailwind CSS", "UX Redesign"],
     },
+  },
+];
+
+export const TESTIMONIALS: TestimonialData[] = [
+  {
+    id: 'dj-sync',
+    quote: "Lazar built my complete brand presence from scratch - a dynamic website that perfectly captures the energy of my DJ sets. The booking system and music portfolio integration work flawlessly.",
+    secondary: "I needed a site that looks as good on a phone as it does on a big screen, with smooth animations and instant load times. Lazar delivered exactly that. Since going live, I've been getting more gig inquiries than ever before.",
+    author: 'Milan Pešić',
+    role: 'DJ Sync',
+    initials: 'MP',
   },
 ];
 

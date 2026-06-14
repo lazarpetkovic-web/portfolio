@@ -40,3 +40,12 @@ export interface TimelineEvent {
   description: string;
 }
 
+export interface TestimonialData {
+  id: string;
+  quote: string;
+  secondary: string;
+  author: string;
+  role: string;
+  initials: string;
+}
+
